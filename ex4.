@@ -1,0 +1,28 @@
+defeitos = [0, 0, 0, 0]
+
+while True:
+    identificacao = int(input("Digite a identificação do mouse (0 para encerrar): "))
+    
+    if identificacao == 0:
+        break
+    
+    tipo_defeito = int(input("Digite o tipo de defeito (1-4): "))
+    
+    defeitos[tipo_defeito - 1] += 1
+
+quantidade_total = sum(defeitos)
+
+print("Quantidade de mouses:", quantidade_total)
+print("Situação\tQuantidade\tPercentual")
+for i, defeito in enumerate(defeitos):
+    percentual = (defeito / quantidade_total) * 100
+    print(f"{i + 1}-", end="\t")
+    if i == 0:
+        print("necessita da esfera", end="\t")
+    elif i == 1:
+        print("necessita de limpeza", end="\t")
+    elif i == 2:
+        print("necessita troca do cabo ou conector", end="\t")
+    else:
+        print("quebrado ou inutilizado", end="\t")
+    print(f"{defeito}\t{percentual:.1f}%")
