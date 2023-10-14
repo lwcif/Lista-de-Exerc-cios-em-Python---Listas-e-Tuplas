@@ -1,0 +1,25 @@
+
+carros = ["Fusca", "Gol", "Uno", "Vectra", "Peugeout"]
+
+consumo = [7, 10, 12.5, 9, 14.5]
+
+preco_gasolina = 2.25
+
+indice_mais_economico = consumo.index(max(consumo))
+
+print("Comparativo de Consumo de Combustível")
+for i in range(len(carros)):
+    print(f"Veículo {i + 1}")
+    print(f"Nome: {carros[i]}")
+    print(f"Km por litro: {consumo[i]}")
+    print()
+
+distancia = 1000
+print("Relatório Final")
+for i in range(len(carros)):
+    consumo_litros = distancia / consumo[i]
+    custo = consumo_litros * preco_gasolina
+    print(f"{i + 1} - {carros[i]} - {consumo[i]} - {consumo_litros:.1f} litros - R$ {custo:.2f}")
+
+
+print(f"O menor consumo é do {carros[indice_mais_economico]}")
