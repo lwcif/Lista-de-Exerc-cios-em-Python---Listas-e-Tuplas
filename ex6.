@@ -1,0 +1,21 @@
+import random
+
+def simular_lancamento_dados(n_lancamentos):
+    resultados = [0, 0, 0, 0, 0, 0] 
+
+    for _ in range(n_lancamentos):
+        resultado = random.randint(1, 6) 
+        resultados[resultado - 1] += 1
+
+    return resultados
+
+def main():
+    n_lancamentos = 100
+    resultados = simular_lancamento_dados(n_lancamentos)
+
+    print("Resultado dos lançamentos de dados:")
+    for i in range(6):
+        print(f"Face {i + 1}: {resultados[i]} vezes")
+
+if __name__ == "__main__":
+    main()
