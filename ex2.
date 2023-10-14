@@ -1,0 +1,31 @@
+
+total_gasto_abonos = 0
+numero_colaboradores = 0
+numero_colaboradores_valor_minimo = 0
+maior_valor_abono = 0
+
+# Iniciar a entrada de salários
+while True:
+    salario = float(input("Salário: "))
+
+    if salario == 0:
+        break
+
+    abono = max(salario * 0.20, 100)
+
+    total_gasto_abonos += abono
+    numero_colaboradores += 1
+    
+    if abono == 100:
+        numero_colaboradores_valor_minimo += 1
+    
+    if abono > maior_valor_abono:
+        maior_valor_abono = abono
+
+    print(f"R$ {salario:.2f} - R$ {abono:.2f}")
+
+# Apresente os resultados finais
+print(f"Foram processados {numero_colaboradores} colaboradores")
+print(f"Total gasto com abonos: R$ {total_gasto_abonos:.2f}")
+print(f"Valor mínimo pago a {numero_colaboradores_valor_minimo} colaboradores")
+print(f"Maior valor de abono pago: R$ {maior_valor_abono:.2f}")
