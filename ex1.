@@ -1,0 +1,44 @@
+votos = {
+    "Windows Server": 0,
+    "Unix": 0,
+    "Linux": 0,
+    "Netware": 0,
+    "Mac OS": 0,
+    "Outro": 0
+}
+
+while True:
+    print("Qual o melhor Sistema Operacional para uso em servidores?")
+    print("1- Windows Server")
+    print("2- Unix")
+    print("3- Linux")
+    print("4- Netware")
+    print("5- Mac OS")
+    print("6- Outro")
+    print("0- Encerrar")
+
+    voto = int(input("Digite o número correspondente ao seu voto: "))
+
+    if voto < 0 or voto > 6:
+        print("Voto inválido. Por favor, digite um número entre 0 e 6.")
+        continue
+
+    if voto == 0:
+        break
+
+    for sistema, valor in votos.items():
+        if valor == voto - 1:
+            votos[sistema] += 1
+
+total_votos = sum(votos.values())
+print("\nSistema Operacional Votos %")
+print("------------------- ----- ---")
+for sistema, votos in votos.items():
+    percentual = (votos / total_votos) * 100
+    print(f"{sistema:<20} {votos:<5} {percentual:.0f}%")
+
+print("------------------- ----- ---")
+print(f"Total {total_votos}")
+
+vencedor = max(votos, key=votos.get)
+print(f"\nO Sistema Operacional mais votado foi o {vencedor}, com {votos[vencedor]} votos, correspondendo a {int((votos[vencedor] / total_votos) * 100)}% dos votos.")
